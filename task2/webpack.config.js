@@ -12,9 +12,20 @@ module.exports = {
   resolve: {
     extensions: [".js"],
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [new HtmlWebpackPlugin({template: './index.html'})],
   module: {
     rules: [
+      {
+        test: /\.(ttf|eot|svg|woff|png)$/,
+        loader: "file-loader",
+        options: {
+          name: '[path][name].[ext]?[hash]'
+        }
+      },
+      {
+        test: require.resolve('lodash'),
+        loader: 'expose-loader?lodash'
+      },
       {
         test: /\.jsx?$/,
         loader: "babel-loader",
@@ -23,17 +34,6 @@ module.exports = {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-      {
-        test: require.resolve('lodash'),
-        loader: 'expose-loader?lodash'
-      },
-      {
-        test: /\.(ttf|eot|svg|woff|png)$/,
-        loader: "file-loader",
-        options: {
-          name: '[path][name].[ext]?[hash]'
-        }
-      }
     ],
   },
   watch: false,
