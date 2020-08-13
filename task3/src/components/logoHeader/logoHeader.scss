@@ -1,0 +1,10 @@
+@import '../../utils/constans.scss';
+
+.logo-header {
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 40px;
+  width: 100%;
+}

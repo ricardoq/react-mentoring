@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Header from './containers/header/header';
+import Results from './containers/results/results';
+import Footer from './containers/footer/footer';
+import ErrorBoundary from './utils/errorBoundary/errorBoundary';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ErrorBoundary>
+        <Header/>
+        <Results/>
+      </ErrorBoundary>
+      <Footer/>
     </div>
   );
 }
