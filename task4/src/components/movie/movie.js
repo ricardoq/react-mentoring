@@ -15,7 +15,6 @@ class Movie extends React.Component{
   }
 
   toggleModal(value) {
-    console.log(value || !this.state.showModal);
     this.setState({
       showModal: value || !this.state.showModal
     });
