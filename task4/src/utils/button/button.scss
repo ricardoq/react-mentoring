@@ -1,0 +1,20 @@
+@import '../constans.scss';
+
+button {
+  border: none;
+  border-radius: 3px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px;
+  outline: none;
+
+  &.primary {
+    background: $red;
+    color: $white;
+  }
+  &.secondary {
+    background: rgba($gray, .7);
+    color: $red;
+  }
+}
+
