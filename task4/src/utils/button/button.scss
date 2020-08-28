@@ -3,6 +3,7 @@
 button {
   border: none;
   border-radius: 3px;
+  cursor: pointer;
   font-size: 16px;
   font-weight: bold;
   padding: 8px;
@@ -11,6 +12,11 @@ button {
   &.primary {
     background: $red;
     color: $white;
+  }
+  &.primary-inverted {
+    background: $black;
+    border: 1px solid $red;
+    color: $red;
   }
   &.secondary {
     background: rgba($gray, .7);
