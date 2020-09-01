@@ -2,9 +2,9 @@ import React from 'react';
 import './button.scss';
 import PropTypes from 'prop-types';
 
-function Button(props) {
-  const buttonStyle = `${(props.color || 'primary')} ${props.className || ''}`;
-  return (<button className={buttonStyle} onClick={props.onClick}>{props.children}</button>
+function Button({children, color, className, onClick}) {
+  const buttonStyle = `${(color || 'primary')} ${className || ''}`;
+  return (<button className={buttonStyle} onClick={onClick}>{children}</button>
   );
 }
 

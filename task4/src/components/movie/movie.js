@@ -9,32 +9,33 @@ class Movie extends React.Component{
     super(props);
 
     this.state = {
-      movie: props.movie,
       showModal: false,
     };
   }
 
-  toggleModal(value) {
+  toggleModal = () => {
     this.setState({
-      showModal: value || !this.state.showModal
+      showModal: !this.state.showModal
     });
   }
 
   render() {
+    const {movie} = this.props;
+    const {showModal} = this.state;
     return (
       <div className="movie"
-           onClick={this.toggleModal.bind(this, !this.state.showModal)}>
-        <img src={this.props.movie.poster}/>
+           onClick={this.toggleModal}>
+        <img src={movie.poster}/>
         <div className="movie-info">
           <h3>
-            {this.props.movie.title}
-            <span>{this.props.movie.genre}</span>
+            {movie.title}
+            <span>{movie.genre}</span>
           </h3>
-          <span className="year">{this.props.movie.year}</span>
+          <span className="year">{movie.year}</span>
         </div>
-        <EditMovie isOpen={this.state.showModal}
-                   editItem={this.props.movie}
-                   getsClosed={this.toggleModal.bind(this, false)}/>
+        <EditMovie isOpen={showModal}
+                   editItem={movie}
+                   getsClosed={this.toggleModal}/>
       </div>
     );
   }

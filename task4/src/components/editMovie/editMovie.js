@@ -71,7 +71,7 @@ class EditMovie extends React.Component {
               this.state.editItem.id ? (<div className="input-wrapper">
               <label>MOVIE ID</label>
               <p>123</p>
-              </div>) : ''}
+              </div>) : null}
             <Input label="TITLE"
                    placeholder="Set title"
                    value={this.state.editItem.title || ''}
@@ -107,7 +107,7 @@ class EditMovie extends React.Component {
         </Modal>
       );
     } else {
-      return (<></>)
+      return (null)
     }
   }
 }
