@@ -6,7 +6,7 @@ function Input({label, type, placeholder, onChange, value}) {
   const [valueState, setValue] = useState(value);
   useEffect(() => {
     setValue(value);
-  });
+  }, [value]);
 
   return (
     <div className="input-wrapper">
