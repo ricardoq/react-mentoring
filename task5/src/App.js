@@ -6,12 +6,6 @@ import Footer from './containers/footer/footer';
 import ErrorBoundary from './utils/errorBoundary/errorBoundary';
 import { MovieContext } from './utils/contexts/movieContext'
 
-/*
- * TODO(Quinonez):
- * - Create the new screen (movie detail)
- * - Implement navigation?
- */
-
 function App() {
   const [movieId, setMovieId] = useState(null);
   const changeMovie = (value) => {

@@ -51,7 +51,7 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
         {editItemState.id ? (
           <div className="input-wrapper">
             <label>MOVIE ID</label>
-            <p>123</p>
+            <p>{editItemState.id}</p>
           </div>
         ) : null}
         <Input
