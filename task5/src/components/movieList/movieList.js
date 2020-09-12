@@ -8,7 +8,7 @@ function MovieList() {
     <div className="movie-list">
       <span className="movies-count"><b>{movies.length}</b> Movies found</span>
       <div className="movie-container">
-        { movies.map(i => (<Movie key={`mov${i.id}`} movie={i}/>)) }
+        { movies.map(movie => (<Movie key={`mov${movie.id}`} movie={movie}/>)) }
       </div>
     </div>
   );

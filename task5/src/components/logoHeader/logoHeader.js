@@ -17,10 +17,10 @@ function LogoHeader({isOnDetail}) {
     <div className="logo-header">
       <Logo/>
       {
-        isOnDetail ?  (
+        isOnDetail ?
           <Button className="circle" onClick={() => {changeMovie(null)}}>
             <FontAwesomeIcon icon={faSearch}/>
-          </Button> ) :
+          </Button> :
         ( <>
             <Button color="secondary" onClick={toggleModal}>ADD MOVIE</Button>
             <EditMovie isOpen={showModal} getsClosed={toggleModal}/>

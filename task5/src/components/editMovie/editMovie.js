@@ -27,7 +27,7 @@ const options = [
 
 function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
   const [isOpenState, setIsOpen] = useState(isOpen);
-  const [editItemState, setEditItem] = useState({...editItem});
+  const [editItemState, setEditItem] = useState(editItem);
   const closeModal = () => {
     getsClosed(false);
     setIsOpen(false);
@@ -35,10 +35,11 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
   const resetForm = () => setEditItem({});
   const submitForm = () => closeModal();
   const onInputChange = (key, value) => {
-    const stateUpdate = {...editItemState};
+    const stateUpdate = editItemState;
     stateUpdate[key] = value;
     setEditItem(stateUpdate);
   };
+  const {id, title, date, url, genre, overview, runtime} = editItemState;
 
   useEffect(() => {
     setIsOpen(isOpen);
@@ -47,49 +48,49 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
   return isOpenState ? (
     <Modal className="edit-movie" close={closeModal}>
       <form>
-        <h2>{editItemState.id ? "EDIT" : "ADD"} MOVIE</h2>
-        {editItemState.id ? (
+        <h2>{id ? "EDIT" : "ADD"} MOVIE</h2>
+        {id ? (
           <div className="input-wrapper">
             <label>MOVIE ID</label>
-            <p>{editItemState.id}</p>
+            <p>{id}</p>
           </div>
         ) : null}
         <Input
           label="TITLE"
           placeholder="Set title"
-          value={editItemState.title || ""}
+          value={title || ""}
           onChange={(e) => onInputChange("title", e.target.value)}
         />
         <Input
           label="RELEASE DATE"
           placeholder="Select date"
           type="date"
-          value={editItemState.date || ""}
+          value={date || ""}
           onChange={(e) => onInputChange("date", e.target.value)}
         />
         <Input
           label="MOVIE URL"
           placeholder="Movie URL here"
-          value={editItemState.url || ""}
+          value={url || ""}
           onChange={(e) => onInputChange("url", e.target.value)}
         />
         <DropDown
           label="GENRE"
           placeholder="Select genre"
           options={options}
-          value={editItemState.genre || ""}
+          value={genre || ""}
           onChange={(e) => onInputChange("genre", e.target.value)}
         />
         <Input
           label="OVERVIEW"
           placeholder="Overview here"
-          value={editItemState.overview || ""}
+          value={overview || ""}
           onChange={(e) => onInputChange("overview", e.target.value)}
         />
         <Input
           label="RUNTIME"
           placeholder="Runtime here"
-          value={editItemState.runtime || ""}
+          value={runtime || ""}
           onChange={(e) => onInputChange("runtime", e.target.value)}
         />
       </form>

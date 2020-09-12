@@ -11,13 +11,11 @@ function Header() {
   return (
     <div className="header">
       {
-        movieId ? (<>
-          <MovieDetail/>
-        </>) :
-        ( <>
+        movieId ? <MovieDetail/> :
+        <>
             <LogoHeader isOnDetail={false}></LogoHeader>
             <Search/>
-          </> )
+        </>
       }
     </div>
   );
