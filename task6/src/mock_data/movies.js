@@ -28,7 +28,7 @@ export const movies = [
     poster: "https://www.arthipo.com/image/cache/catalog/genel-tasarim/all-posters/sinema-cinema-film-postersleri/yabanci-filmler/1/pfilm1491-hacker_7cf19a97-poster-movie-film-1000x1000.jpg",
     sinopsis: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     duration: 154,
-    rate: 4.3,
+    rate: 1,
     awards: 'Oscar winning Movie',
   },
   {
@@ -63,7 +63,7 @@ export const movies = [
   },
   {
     id: 'abc5',
-    title: 'Movie title5',
+    title: '1Movie title5',
     genre: genresMovie.ACTION,
     year: 2004,
     date: '10/10/20',
@@ -88,7 +88,7 @@ export const movies = [
     poster: "https://www.arthipo.com/image/cache/catalog/genel-tasarim/all-posters/sinema-cinema-film-postersleri/yabanci-filmler/1/pfilm1491-hacker_7cf19a97-poster-movie-film-1000x1000.jpg",
     sinopsis: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     duration: 154,
-    rate: 4.3,
+    rate: 5,
     awards: 'Oscar winning Movie',
   },
 ];

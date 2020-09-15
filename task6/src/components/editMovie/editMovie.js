@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import "./editMovie.scss";
 import Modal from "../modal/modal";
@@ -5,25 +6,10 @@ import Input from "../../utils/input/input";
 import DropDown from "../../utils/dropdown/dropdown";
 import Button from "../../utils/button/button";
 import PropTypes from "prop-types";
+import { updateMovieAction } from '../../utils/actions/actionMovies';
+import { genresMovie } from '../../utils/constans';
 
-const options = [
-  {
-    label: "Documentary",
-    value: "documentary",
-  },
-  {
-    label: "Comedy",
-    value: "comedy",
-  },
-  {
-    label: "Horror",
-    value: "horror",
-  },
-  {
-    label: "Crime",
-    value: "crime",
-  },
-];
+const options = Object.values(genresMovie).map(value => ({label: value, value}));
 
 function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
   const [isOpenState, setIsOpen] = useState(isOpen);
@@ -110,4 +96,16 @@ EditMovie.protoTypes = {
   getsClosed: PropTypes.func,
 };
 
-export default EditMovie;
+/**
+ * TODO(quinonez):
+ *  - Fix form behaviour
+ *  - Add addMovie dispatcher
+ *  - Call update/add movie according the edition id.
+ */
+const mapDispatchToProps = (dispatch) => {
+  return {
+    updateMovie: (updates) => dispatch(updateMovieAction(updates)),
+  };
+}
+
+export default connect(null, mapDispatchToProps)(EditMovie);

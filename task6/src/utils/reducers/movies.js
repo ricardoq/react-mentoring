@@ -11,24 +11,29 @@ const initialMovies = {
 export const moviesReducer = (state = initialMovies, action) => {
   switch (action.type) {
     case moviesAction.GET_LIST:
-      const {genre, sortBy} = action.payload;
-      const updatedMovies = movies
-                          .filter(movie => genre ? movie.genre === genre : movie)
-                          .sort((movieA, movieB) => {
-                            switch (sortBy) {
-                              case 'date':
-                                return movieA.date - movieB.date;
-                              case 'title':
-                                return movieA.title - movieB.date;
-                              case 'rate':
-                                return movieA.rate - movieB.rate;
-                              default: return 0;
-                            }
-                          });
+      const { genre, sortBy } = action.payload;
+      let updatedMovies = sortBy ? state.movies : movies;
+
       return {
         ...state,
-        movies: [...updatedMovies]
+        movies: [
+          ...updatedMovies
+            .filter((movie) => (genre ? movie.genre === genre : movie))
+            .sort((movieA, movieB) => {
+              switch (sortBy) {
+                case "date":
+                  return new Date(movieA.date) - new Date(movieB.date);
+                case "title":
+                  return ("" + movieA.title).localeCompare(movieB.title);
+                case "rate":
+                  return movieB.rate - movieA.rate;
+                default:
+                  return 0;
+              }
+            }),
+        ],
       };
+    // case moviesAction.UPDATE_MOVIE:
     // case moviesAction.ADD_MOVIE:
     default:
       return state;

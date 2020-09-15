@@ -2,17 +2,18 @@ import React from 'react';
 import './dropdown.scss';
 import PropTypes from 'prop-types';
 
-function DropDown(props) {
+function DropDown({label, placeholder, options, onChange, value}) {
+  console.log(options, value);
   return (
     <div className="input-wrapper">
-      <label>{props.label}</label>
+      <label>{label}</label>
       <select type="select"
-             placeholder={props.placeholder}
-             value={props.value}
-             onChange={props.onChange} >
+             placeholder={placeholder}
+             value={value}
+             onChange={onChange} >
         {
-          props.options.map((item, index) =>
-          ( <option value={item.value} key={`${props.label}${index}`}>
+          options.map((item, index) =>
+          ( <option value={item.value} key={`${label}${index}`}>
               {item.label}
             </option>))
         }

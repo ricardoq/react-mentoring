@@ -11,6 +11,13 @@ export const getListAction = (filterObject) => {
   };
 }
 
+export const updateMovieAction = (updates) => {
+  return {
+    type: moviesAction.ADD_MOVIE,
+    payload: updates
+  };
+}
+
 export const addMovieAction = () => {
   return {
     type: moviesAction.ADD_MOVIE,

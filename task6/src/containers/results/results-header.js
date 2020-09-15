@@ -5,19 +5,19 @@ import Filter from '../../components/filter/filter';
 import Sort from '../../components/sort/sort';
 import { getListAction } from '../../utils/actions/actionMovies';
 
-function ResultsHeader({getGenre}) {
+function ResultsHeader({getGenre, getSort}) {
   return (
     <div className="resullt-header">
       <Filter filterFunc={getGenre}/>
-      <Sort />
+      <Sort sortFunc={getSort}/>
     </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log(dispatch);
   return {
     getGenre: (genre) => dispatch(getListAction({genre})),
+    getSort: (sortBy) =>dispatch(getListAction({sortBy}))
   };
 }
 

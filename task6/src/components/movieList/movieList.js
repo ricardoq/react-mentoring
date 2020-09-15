@@ -5,7 +5,6 @@ import './movieList.scss';
 import Movie from '../movie/movie';
 
 function MovieList({movies = []}) {
-  console.log(movies)
   return (
     <div className="movie-list">
       <span className="movies-count"><b>{movies.length}</b> Movies found</span>
