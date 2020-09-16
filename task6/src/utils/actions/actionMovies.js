@@ -13,13 +13,14 @@ export const getListAction = (filterObject) => {
 
 export const updateMovieAction = (updates) => {
   return {
-    type: moviesAction.ADD_MOVIE,
+    type: moviesAction.UPDATE_MOVIE,
     payload: updates
   };
 }
 
-export const addMovieAction = () => {
+export const addMovieAction = (newMovie) => {
   return {
     type: moviesAction.ADD_MOVIE,
+    payload: newMovie,
   };
 }

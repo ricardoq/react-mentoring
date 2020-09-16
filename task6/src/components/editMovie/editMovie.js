@@ -6,12 +6,18 @@ import Input from "../../utils/input/input";
 import DropDown from "../../utils/dropdown/dropdown";
 import Button from "../../utils/button/button";
 import PropTypes from "prop-types";
-import { updateMovieAction } from '../../utils/actions/actionMovies';
+import { updateMovieAction, addMovieAction } from '../../utils/actions/actionMovies';
 import { genresMovie } from '../../utils/constans';
+import { stringifyDate } from '../../utils/utils';
 
 const options = Object.values(genresMovie).map(value => ({label: value, value}));
 
-function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
+function EditMovie({ isOpen = false,
+                     editItem = {},
+                     getsClosed,
+                     updateMovie,
+                     addMovie
+                  }) {
   const [isOpenState, setIsOpen] = useState(isOpen);
   const [editItemState, setEditItem] = useState(editItem);
   const closeModal = () => {
@@ -19,7 +25,14 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
     setIsOpen(false);
   };
   const resetForm = () => setEditItem({});
-  const submitForm = () => closeModal();
+  const submitForm = () => {
+    if (id) {
+      updateMovie(editItemState);
+    } else {
+      addMovie(editItemState);
+    }
+    closeModal();
+  };
   const onInputChange = (key, value) => {
     const stateUpdate = editItemState;
     stateUpdate[key] = value;
@@ -51,7 +64,7 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
           label="RELEASE DATE"
           placeholder="Select date"
           type="date"
-          value={date || ""}
+          value={stringifyDate(new Date(date)) || ""}
           onChange={(e) => onInputChange("date", e.target.value)}
         />
         <Input
@@ -59,6 +72,12 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
           placeholder="Movie URL here"
           value={url || ""}
           onChange={(e) => onInputChange("url", e.target.value)}
+        />
+        <Input
+          label="POSTER URL"
+          placeholder="Poster URL here"
+          value={url || ""}
+          onChange={(e) => onInputChange("poster", e.target.value)}
         />
         <DropDown
           label="GENRE"
@@ -76,6 +95,7 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
         <Input
           label="RUNTIME"
           placeholder="Runtime here"
+          type="number"
           value={runtime || ""}
           onChange={(e) => onInputChange("runtime", e.target.value)}
         />
@@ -96,15 +116,10 @@ EditMovie.protoTypes = {
   getsClosed: PropTypes.func,
 };
 
-/**
- * TODO(quinonez):
- *  - Fix form behaviour
- *  - Add addMovie dispatcher
- *  - Call update/add movie according the edition id.
- */
 const mapDispatchToProps = (dispatch) => {
   return {
     updateMovie: (updates) => dispatch(updateMovieAction(updates)),
+    addMovie: (newMovie) => dispatch(addMovieAction(newMovie)),
   };
 }
 

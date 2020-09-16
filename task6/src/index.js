@@ -7,8 +7,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { moviesReducer } from './utils/reducers/movies';
 
-// TODO(quinonez): Create rootReducer
-const store = createStore(moviesReducer);
+const store = createStore(moviesReducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <React.StrictMode>

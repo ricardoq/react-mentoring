@@ -10,6 +10,7 @@ import { MovieContext } from '../../utils/contexts/movieContext';
 function Movie({movie}) {
   const [showModal, toggleModal] = useShowModal();
   const {changeMovie} = useContext(MovieContext);
+  let movieYear = new Date(movie.date).getFullYear();
 
   return (
     <div className="movie">
@@ -24,7 +25,7 @@ function Movie({movie}) {
           {movie.title}
           <span>{movie.genre}</span>
         </h3>
-        <span className="year">{movie.year}</span>
+        <span className="year">{movieYear}</span>
       </div>
       <EditMovie isOpen={showModal}
                  editItem={movie}

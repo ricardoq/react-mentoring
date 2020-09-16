@@ -1,16 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './dropdown.scss';
 import PropTypes from 'prop-types';
 
 function DropDown({label, placeholder, options, onChange, value}) {
-  console.log(options, value);
+  const [valueState, setValue] = useState(value);
+  const updateValue = (e) => {
+    setValue(e.target.value);
+    onChange(e);
+  };
   return (
     <div className="input-wrapper">
       <label>{label}</label>
       <select type="select"
              placeholder={placeholder}
-             value={value}
-             onChange={onChange} >
+             value={valueState}
+             onChange={updateValue} >
         {
           options.map((item, index) =>
           ( <option value={item.value} key={`${label}${index}`}>

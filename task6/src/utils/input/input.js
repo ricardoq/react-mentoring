@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 
 function Input({label, type, placeholder, onChange, value}) {
   const [valueState, setValue] = useState(value);
+  const updateValue = (e) => {
+    setValue(e.target.value);
+    onChange(e);
+  };
   useEffect(() => {
     setValue(value);
   }, [value]);
@@ -14,7 +18,7 @@ function Input({label, type, placeholder, onChange, value}) {
       <input type={type || 'text'}
              placeholder={placeholder}
              value={valueState}
-             onChange={onChange} />
+             onChange={updateValue} />
     </div>
   );
 }

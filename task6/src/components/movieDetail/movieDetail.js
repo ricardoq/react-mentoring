@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import './movieDetail.scss';
 import LogoHeader from '../logoHeader/logoHeader';
 import { MovieContext } from '../../utils/contexts/movieContext';
-import { movies } from '../../mock_data/movies';
+import {connect} from 'react-redux';
 
-function MovieDetail() {
+function MovieDetail({ movies }) {
   const {movieId} = useContext(MovieContext);
   const selectedMovie = movies.find((movie) => movie.id === movieId);
+  const movieYear = new Date(selectedMovie.date).getFullYear();
 
   return (
     <>
@@ -20,9 +21,9 @@ function MovieDetail() {
             <span className="awards">{selectedMovie.awards}</span>
           </div>
           <div className="movie-sinopsis">
-            <span>{selectedMovie.year}</span>
-            <span>{selectedMovie.duration} min</span>
-            <p>{selectedMovie.sinopsis}</p>
+            <span>{movieYear}</span>
+            <span>{selectedMovie.runtime} min</span>
+            <p>{selectedMovie.overview}</p>
           </div>
         </div>
       </div>
@@ -30,5 +31,9 @@ function MovieDetail() {
   );
 }
 
+const mapStatetoProps = (state) => {
+  const {movies} = state;
+  return {movies};
+};
 
-export default MovieDetail;
+export default connect(mapStatetoProps)(MovieDetail);
