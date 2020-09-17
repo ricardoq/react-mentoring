@@ -3,6 +3,7 @@ export const BASE_URL = `http://virtserver.swaggerhub.com/ricardoq/movies_api/${
 export const GET_LIST_URL = `${BASE_URL}movies`;
 
 export const moviesAction = {
+  INIT_STATE: 'INIT_STATE',
   GET_LIST: 'GET_LIST',
   ADD_MOVIE: 'ADD_MOVIE',
   UPDATE_MOVIE: 'UPDATE_MOVIE',

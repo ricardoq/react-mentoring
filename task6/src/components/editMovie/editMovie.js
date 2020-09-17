@@ -6,7 +6,7 @@ import Input from "../../utils/input/input";
 import DropDown from "../../utils/dropdown/dropdown";
 import Button from "../../utils/button/button";
 import PropTypes from "prop-types";
-import { updateMovieAction, addMovieAction } from '../../utils/actions/actionMovies';
+import { asyncUpdateMovieAction, asyncAddMovieAction } from '../../utils/actions/actionMovies';
 import { genresMovie } from '../../utils/constans';
 import { stringifyDate } from '../../utils/utils';
 
@@ -118,8 +118,8 @@ EditMovie.protoTypes = {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateMovie: (updates) => dispatch(updateMovieAction(updates)),
-    addMovie: (newMovie) => dispatch(addMovieAction(newMovie)),
+    updateMovie: (updates) => dispatch(asyncUpdateMovieAction(updates)),
+    addMovie: (newMovie) => dispatch(asyncAddMovieAction(newMovie)),
   };
 }
 

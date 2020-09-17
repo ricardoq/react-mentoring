@@ -1,18 +1,16 @@
 import {moviesAction} from '../constans';
-// TODO(quinonez): Remove this when API middleware is done
-import { movies } from '../../mock_data/movies';
 
 
-// TODO(quinonez): Set redux flow off line and then move the logic to work with the API
 const initialMovies = {
-  movies,
+  fullMovies: [],
+  movies: [],
 };
 
 export const moviesReducer = (state = initialMovies, action) => {
   switch (action.type) {
     case moviesAction.GET_LIST:
       const { genre, sortBy } = action.payload;
-      let updatedMovies = sortBy ? state.movies : movies;
+      let updatedMovies = sortBy ? state.movies : state.fullMovies;
 
       return {
         ...state,
@@ -34,7 +32,7 @@ export const moviesReducer = (state = initialMovies, action) => {
         ],
       };
     case moviesAction.UPDATE_MOVIE:
-      const oldItem = initialMovies.movies
+      const oldItem = state.fullMovies
                         .find(movie => movie.id === action.payload.id);
       const newItem = {
         ...oldItem,
@@ -42,13 +40,22 @@ export const moviesReducer = (state = initialMovies, action) => {
       };
       return {
         ...state,
-        movies: initialMovies.movies.map(movie =>
+        fullMovies: state.fullMovies.map(movie =>
+                  movie.id === action.payload.id ? newItem : movie),
+        movies: state.fullMovies.map(movie =>
                   movie.id === action.payload.id ? newItem : movie),
       }
     case moviesAction.ADD_MOVIE:
       return {
         ...state,
-        movies: [...movies, action.payload],
+        fullMovies: [...state.movies, action.payload],
+        movies: [...state.movies, action.payload],
+      };
+    case moviesAction.INIT_STATE:
+      return {
+        ...state,
+        fullMovies: [...action.payload],
+        movies: [...action.payload],
       };
     default:
       return state;

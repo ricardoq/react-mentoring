@@ -1,7 +1,6 @@
 import { moviesAction } from '../constans';
 
 /**
- *
  * @param {genre, sortBy} filterObject: This object will filter / sort result
  */
 export const getListAction = (filterObject) => {
@@ -24,3 +23,57 @@ export const addMovieAction = (newMovie) => {
     payload: newMovie,
   };
 }
+
+export const initStateAction = (apiList) => {
+  return {
+    type: moviesAction.INIT_STATE,
+    payload: apiList,
+  };
+}
+
+// Async middleware
+
+export const asyncInitMoviesAction = () => (dispatch) => {
+  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.4/movies')
+    .then(response => {
+      return response.json();
+    }).then(response => {
+      dispatch(initStateAction(response));
+    });
+};
+
+export const asyncUpdateMovieAction = (updatedMovie) => (dispatch) => {
+  const objectInit = {
+    method: 'PATCH',
+    body: JSON.stringify(updatedMovie),
+    mode: 'cors',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+  };
+  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.4/movie/${updatedMovie.id}`,
+        objectInit)
+    .then(response => {
+      return response.json();
+    }).then(response => {
+      dispatch(updateMovieAction(updatedMovie));
+    });
+};
+
+export const asyncAddMovieAction = (newMovie) => (dispatch) => {
+  const objectInit = {
+    method: 'POST',
+    body: JSON.stringify(newMovie),
+    mode: 'cors',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+  };
+  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.4/movies',
+        objectInit)
+    .then(response => {
+      return response.json();
+    }).then((response) => {
+      dispatch(addMovieAction(response));
+    });
+};

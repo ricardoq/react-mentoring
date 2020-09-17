@@ -9,7 +9,9 @@ function MovieList({movies = []}) {
     <div className="movie-list">
       <span className="movies-count"><b>{movies.length}</b> Movies found</span>
       <div className="movie-container">
-        { movies.map(movie => (<Movie key={`mov${movie.id}`} movie={movie}/>)) }
+        { movies.length ?
+          movies.map(movie => (<Movie key={`mov${movie.id}`} movie={movie}/>)) :
+          <h2>No Movie Found</h2> }
       </div>
     </div>
   );
