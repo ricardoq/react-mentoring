@@ -41,7 +41,7 @@ class Movie extends React.Component{
   }
 }
 
-Movie.protoTypes = {
+Movie.propTypes= {
   movies: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,

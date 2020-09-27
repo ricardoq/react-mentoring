@@ -31,7 +31,7 @@ class Input extends React.Component {
   }
 }
 
-Input.protoTypes = {
+Input.propTypes= {
   label: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,

@@ -30,7 +30,7 @@ function LogoHeader({isOnDetail}) {
   );
 }
 
-LogoHeader.protoTypes = {
+LogoHeader.propTypes= {
   isOnDetail: PropTypes.bool,
 }
 

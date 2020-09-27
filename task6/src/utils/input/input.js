@@ -23,7 +23,7 @@ function Input({label, type, placeholder, onChange, value}) {
   );
 }
 
-Input.protoTypes = {
+Input.propTypes= {
   label: PropTypes.string,
   type: PropTypes.string,
   placeholder: PropTypes.string,

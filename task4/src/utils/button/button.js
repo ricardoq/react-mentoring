@@ -8,7 +8,7 @@ function Button({children, color, className, onClick}) {
   );
 }
 
-Button.protoTypes = {
+Button.propTypes= {
   children: PropTypes.node.isRequired,
   color: PropTypes.string,
   className: PropTypes.string,

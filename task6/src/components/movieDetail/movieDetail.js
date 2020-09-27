@@ -6,24 +6,32 @@ import {connect} from 'react-redux';
 
 function MovieDetail({ movies }) {
   const {movieId} = useContext(MovieContext);
-  const selectedMovie = movies.find((movie) => movie.id === movieId);
-  const movieYear = new Date(selectedMovie.date).getFullYear();
+  const {
+    title,
+    poster,
+    rate,
+    awards,
+    runtime,
+    overview,
+    date
+  } = movies.find((movie) => movie.id === movieId);
+  const movieYear = new Date(date).getFullYear();
 
   return (
     <>
       <LogoHeader isOnDetail={true}/>
       <div className="movie-wrapper">
-        <img alt={selectedMovie.title} src={selectedMovie.poster}/>
+        <img alt={title} src={poster}/>
         <div className="movie-data">
           <div className="movie-title">
-            <h2>{selectedMovie.title}</h2>
-            <span className="rate">{selectedMovie.rate}</span>
-            <span className="awards">{selectedMovie.awards}</span>
+            <h2>{title}</h2>
+            <span className="rate">{rate}</span>
+            <span className="awards">{awards}</span>
           </div>
           <div className="movie-sinopsis">
             <span>{movieYear}</span>
-            <span>{selectedMovie.runtime} min</span>
-            <p>{selectedMovie.overview}</p>
+            <span>{runtime} min</span>
+            <p>{overview}</p>
           </div>
         </div>
       </div>

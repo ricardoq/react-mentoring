@@ -104,7 +104,7 @@ function EditMovie({ isOpen = false, editItem = {}, getsClosed }) {
   ) : null;
 }
 
-EditMovie.protoTypes = {
+EditMovie.propTypes= {
   isOpen: PropTypes.bool,
   editItem: PropTypes.object,
   getsClosed: PropTypes.func,

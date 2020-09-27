@@ -16,7 +16,7 @@ function Modal({children, close,className}) {
   </>
 }
 
-Modal.protoTypes = {
+Modal.propTypes= {
   children: PropTypes.node.isRequired,
   close: PropTypes.func.isRequired,
   className: PropTypes.string,
