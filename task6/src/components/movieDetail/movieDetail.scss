@@ -1,0 +1,57 @@
+@import '../../utils/constans.scss';
+
+.movie-wrapper {
+  color: $white;
+  display: flex;
+  height: 400px;
+  padding: 10px 40px;
+
+  img {
+    max-height: 400px;
+  }
+
+  .movie-data {
+    padding-left: 20px;
+    text-align: left;
+
+    .movie-title {
+      h2 {
+        display: inline-block;
+        font-size: 42px;
+        font-weight: 200;
+        margin: 0;
+      }
+
+      .rate {
+        border: 1px solid $white;
+        border-radius: 50%;
+        color: $green;
+        font-size: 42px;
+        font-weight: 200;
+        margin-left: 15px;
+        padding: 10px;
+      }
+
+      .awards {
+        display: block;
+        margin-top: 15px;
+        text-align: left;
+      }
+    }
+
+    .movie-sinopsis {
+      span {
+        color: $red;
+        font-size: 32px;
+        font-weight: 400;
+        margin-right: 70px;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: 400;
+        text-align: justify;
+      }
+    }
+  }
+}

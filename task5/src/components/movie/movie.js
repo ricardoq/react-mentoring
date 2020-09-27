@@ -33,7 +33,7 @@ function Movie({movie}) {
   );
 }
 
-Movie.protoTypes = {
+Movie.propTypes= {
   movie: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,

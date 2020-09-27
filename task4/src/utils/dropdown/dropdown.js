@@ -21,7 +21,7 @@ function DropDown(props) {
   );
 }
 
-DropDown.protoTypes = {
+DropDown.propTypes= {
   label: PropTypes.string,
   placeholder: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.object).isRequired,

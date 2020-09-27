@@ -112,7 +112,7 @@ class EditMovie extends React.Component {
   }
 }
 
-EditMovie.protoTypes = {
+EditMovie.propTypes= {
   isOpen: PropTypes.bool,
   editItem: PropTypes.object,
   getsClosed: PropTypes.func,
