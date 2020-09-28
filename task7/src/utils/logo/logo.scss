@@ -1,0 +1,12 @@
+@import '../../utils/constans.scss';
+
+.logo {
+  color: $red;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+
+  span {
+    font-weight: bolder;
+  }
+}
