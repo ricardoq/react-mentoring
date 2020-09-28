@@ -38,7 +38,6 @@ function EditMovie({ isOpen = false,
     }
     closeModal();
   };
-  // TODO(quinonez): ADD VALIDATIONS HERE
   const validate = (values) => {
     errors = {};
     if (!values.title) {
