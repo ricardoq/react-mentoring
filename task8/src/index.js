@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { moviesReducer } from './utils/reducers/movies';
 import thunk from 'redux-thunk';
-import { asyncInitMoviesAction } from './utils/actions/actionMovies';
+// import { asyncInitMoviesAction } from './utils/actions/actionMovies';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -15,7 +15,7 @@ const store = createStore(
                 moviesReducer,
                 composeEnhancer(applyMiddleware(thunk))
                 );
-store.dispatch(asyncInitMoviesAction());
+// store.dispatch(asyncInitMoviesAction());
 
 ReactDOM.render(
   <React.StrictMode>

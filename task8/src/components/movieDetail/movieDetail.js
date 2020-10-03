@@ -3,7 +3,6 @@ import './movieDetail.scss';
 import LogoHeader from '../logoHeader/logoHeader';
 import {connect} from 'react-redux';
 
-// TODO(quinonez): Get data from state
 function MovieDetail({ selectedMovie }) {
   const {
     title = '',

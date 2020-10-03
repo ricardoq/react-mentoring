@@ -2,7 +2,6 @@ import {moviesAction} from '../constans';
 
 
 const initialMovies = {
-  fullMovies: [],
   movies: [],
   selectedMovie: null,
 };
@@ -10,27 +9,10 @@ const initialMovies = {
 export const moviesReducer = (state = initialMovies, action) => {
   switch (action.type) {
     case moviesAction.GET_LIST:
-      const { genre, sortBy } = action.payload;
-      let updatedMovies = sortBy ? state.movies : state.fullMovies;
-
       return {
         ...state,
-        movies: [
-          ...updatedMovies
-            .filter((movie) => (genre ? movie.genre === genre : movie))
-            .sort((movieA, movieB) => {
-              switch (sortBy) {
-                case "date":
-                  return new Date(movieA.date) - new Date(movieB.date);
-                case "title":
-                  return ("" + movieA.title).localeCompare(movieB.title);
-                case "rate":
-                  return movieB.rate - movieA.rate;
-                default:
-                  return 0;
-              }
-            }),
-        ],
+        fullMovies: [...action.payload],
+        movies: [...action.payload],
       };
     case moviesAction.SELECT_MOVIE:
         return {
@@ -56,12 +38,6 @@ export const moviesReducer = (state = initialMovies, action) => {
         ...state,
         fullMovies: [...state.movies, action.payload],
         movies: [...state.movies, action.payload],
-      };
-    case moviesAction.INIT_STATE:
-      return {
-        ...state,
-        fullMovies: [...action.payload],
-        movies: [...action.payload],
       };
     default:
       return state;

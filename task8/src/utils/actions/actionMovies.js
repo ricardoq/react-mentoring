@@ -31,21 +31,14 @@ export const addMovieAction = (newMovie) => {
   };
 }
 
-export const initStateAction = (apiList) => {
-  return {
-    type: moviesAction.INIT_STATE,
-    payload: apiList,
-  };
-}
-
 // Async middleware
 
-export const asyncInitMoviesAction = () => (dispatch) => {
-  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies')
+export const asyncGetMoviesAction = (searchString) => (dispatch) => {
+  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies?searchString=${searchString}`)
     .then(response => {
       return response.json();
     }).then(response => {
-      dispatch(initStateAction(response));
+      dispatch(getListAction(response));
     });
 };
 
