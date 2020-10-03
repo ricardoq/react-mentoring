@@ -34,7 +34,7 @@ export const initStateAction = (apiList) => {
 // Async middleware
 
 export const asyncInitMoviesAction = () => (dispatch) => {
-  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.4/movies')
+  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies')
     .then(response => {
       return response.json();
     }).then(response => {
@@ -51,7 +51,7 @@ export const asyncUpdateMovieAction = (updatedMovie) => (dispatch) => {
       'Content-Type': 'application/json'
     },
   };
-  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.4/movie/${updatedMovie.id}`,
+  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movie/${updatedMovie.id}`,
         objectInit)
     .then(response => {
       return response.json();
@@ -69,7 +69,7 @@ export const asyncAddMovieAction = (newMovie) => (dispatch) => {
       'Content-Type': 'application/json'
     },
   };
-  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.4/movies',
+  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies',
         objectInit)
     .then(response => {
       return response.json();

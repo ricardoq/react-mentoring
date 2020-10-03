@@ -1,22 +1,21 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './movie.scss';
 import PropTypes from 'prop-types';
 import EditMovie from '../editMovie/editMovie';
 import useShowModal from '../../utils/hooks/useShowModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
-import { MovieContext } from '../../utils/contexts/movieContext';
+import { Link } from "react-router-dom";
 
 function Movie({movie}) {
   const [showModal, toggleModal] = useShowModal();
-  const {changeMovie} = useContext(MovieContext);
   let movieYear = new Date(movie.date).getFullYear();
 
   return (
     <div className="movie">
-      <button className="poster-btn" onClick={() => {changeMovie(movie.id)}}>
+      <Link className="poster-btn" to={`/film/${movie.id}`}>
         <img alt={movie.title} src={movie.poster}/>
-      </button>
+      </Link>
       <button className="edit-btn" onClick={toggleModal}>
         <FontAwesomeIcon icon={faPencilAlt} />
       </button>

@@ -1,20 +1,19 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import './movieDetail.scss';
 import LogoHeader from '../logoHeader/logoHeader';
-import { MovieContext } from '../../utils/contexts/movieContext';
 import {connect} from 'react-redux';
 
-function MovieDetail({ movies }) {
-  const {movieId} = useContext(MovieContext);
+// TODO(quinonez): Get data from state
+function MovieDetail({ selectedMovie }) {
   const {
-    title,
-    poster,
-    rate,
-    awards,
-    runtime,
-    overview,
-    date
-  } = movies.find((movie) => movie.id === movieId);
+    title = '',
+    poster = '',
+    rate = '',
+    awards = '',
+    runtime = '',
+    overview = '',
+    date = new Date()
+  } = selectedMovie || {};
   const movieYear = new Date(date).getFullYear();
 
   return (
@@ -40,8 +39,8 @@ function MovieDetail({ movies }) {
 }
 
 const mapStatetoProps = (state) => {
-  const {movies} = state;
-  return {movies};
+  const {selectedMovie} = state;
+  return {selectedMovie};
 };
 
 export default connect(mapStatetoProps)(MovieDetail);

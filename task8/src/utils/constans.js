@@ -7,6 +7,7 @@ export const moviesAction = {
   GET_LIST: 'GET_LIST',
   ADD_MOVIE: 'ADD_MOVIE',
   UPDATE_MOVIE: 'UPDATE_MOVIE',
+  SELECT_MOVIE: 'SELECT_MOVIE',
 }
 
 export const genresMovie = {

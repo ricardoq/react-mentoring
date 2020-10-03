@@ -4,6 +4,7 @@ import {moviesAction} from '../constans';
 const initialMovies = {
   fullMovies: [],
   movies: [],
+  selectedMovie: null,
 };
 
 export const moviesReducer = (state = initialMovies, action) => {
@@ -31,6 +32,11 @@ export const moviesReducer = (state = initialMovies, action) => {
             }),
         ],
       };
+    case moviesAction.SELECT_MOVIE:
+        return {
+          ...state,
+          selectedMovie: action.payload,
+        };
     case moviesAction.UPDATE_MOVIE:
       const oldItem = state.fullMovies
                         .find(movie => movie.id === action.payload.id);
