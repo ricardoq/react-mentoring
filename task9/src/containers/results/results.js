@@ -10,7 +10,7 @@ function Results() {
   const dispatch = useDispatch();
   const {query} = useParams();
   if (query) {
-    dispatch(asyncGetMoviesAction(query));
+    dispatch(asyncGetMoviesAction({searchString: query}));
   }
 
   return (

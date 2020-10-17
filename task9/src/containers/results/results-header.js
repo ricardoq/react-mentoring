@@ -3,7 +3,7 @@ import React from 'react';
 import './results.scss';
 import Filter from '../../components/filter/filter';
 import Sort from '../../components/sort/sort';
-import { getListAction } from '../../utils/actions/actionMovies';
+import { asyncGetMoviesAction } from '../../utils/actions/actionMovies';
 
 function ResultsHeader({getGenre, getSort}) {
   return (
@@ -16,8 +16,8 @@ function ResultsHeader({getGenre, getSort}) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getGenre: (genre) => dispatch(getListAction({genre})),
-    getSort: (sortBy) =>dispatch(getListAction({sortBy}))
+    getGenre: (genre) => dispatch(asyncGetMoviesAction({genre})),
+    getSort: (sortBy) =>dispatch(asyncGetMoviesAction({sortBy}))
   };
 }
 

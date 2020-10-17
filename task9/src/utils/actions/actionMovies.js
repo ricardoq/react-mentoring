@@ -33,8 +33,8 @@ export const addMovieAction = (newMovie) => {
 
 // Async middleware
 
-export const asyncGetMoviesAction = (searchString) => (dispatch) => {
-  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies?searchString=${searchString}`)
+export const asyncGetMoviesAction = ({searchString, genre, sortBy}) => (dispatch) => {
+  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies?searchString=${searchString}&genre=${genre}&sortBy=${sortBy}`)
     .then(response => {
       return response.json();
     }).then(response => {
