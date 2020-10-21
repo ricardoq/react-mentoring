@@ -14,9 +14,10 @@ function Input({label, name, type, placeholder, onChange, value, errors}) {
 
   return (
     <div className="input-wrapper">
-      <label>{label}</label>
+      <label for={name}>{label}</label>
       <input type={type || 'text'}
              name={name || ''}
+             id={name}
              placeholder={placeholder}
              value={valueState}
              onChange={updateValue} />

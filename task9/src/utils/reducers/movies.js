@@ -11,7 +11,6 @@ export const moviesReducer = (state = initialMovies, action) => {
     case moviesAction.GET_LIST:
       return {
         ...state,
-        fullMovies: [...action.payload],
         movies: [...action.payload],
       };
     case moviesAction.SELECT_MOVIE:
@@ -20,7 +19,7 @@ export const moviesReducer = (state = initialMovies, action) => {
           selectedMovie: action.payload,
         };
     case moviesAction.UPDATE_MOVIE:
-      const oldItem = state.fullMovies
+      const oldItem = state.movies
                         .find(movie => movie.id === action.payload.id);
       const newItem = {
         ...oldItem,
@@ -28,15 +27,12 @@ export const moviesReducer = (state = initialMovies, action) => {
       };
       return {
         ...state,
-        fullMovies: state.fullMovies.map(movie =>
-                  movie.id === action.payload.id ? newItem : movie),
-        movies: state.fullMovies.map(movie =>
+        movies: state.movies.map(movie =>
                   movie.id === action.payload.id ? newItem : movie),
       }
     case moviesAction.ADD_MOVIE:
       return {
         ...state,
-        fullMovies: [...state.movies, action.payload],
         movies: [...state.movies, action.payload],
       };
     default:

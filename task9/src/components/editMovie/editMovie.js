@@ -13,7 +13,7 @@ import { stringifyDate } from '../../utils/utils';
 
 const options = Object.values(genresMovie).map(value => ({label: value, value}));
 
-function EditMovie({ isOpen = false,
+export function EditMovie({ isOpen = false,
                      editItem = {},
                      getsClosed,
                      updateMovie,
@@ -79,7 +79,7 @@ function EditMovie({ isOpen = false,
               validate={validate}
               onSubmit={submitForm}>
         {({values, errors, touched, handleChange, handleSubmit}) => (
-          <form onSubmit={handleSubmit}>
+          <form id="edit-form" onSubmit={handleSubmit}>
             <h2>{id ? "EDIT" : "ADD"} MOVIE</h2>
             {id ? (
               <div className="input-wrapper">
@@ -94,6 +94,7 @@ function EditMovie({ isOpen = false,
               value={values.title}
               onChange={handleChange}
               errors={errors.title}
+              dataTestid="title"
             />
             <Input
               label="RELEASE DATE"
@@ -103,6 +104,7 @@ function EditMovie({ isOpen = false,
               value={stringifyDate(new Date(values.date))}
               onChange={handleChange}
               errors={errors.date}
+              dataTestid="date"
             />
             <Input
               label="MOVIE URL"
@@ -111,6 +113,7 @@ function EditMovie({ isOpen = false,
               value={values.url}
               onChange={handleChange}
               errors={errors.url}
+              dataTestid="url"
             />
             <Input
               label="POSTER URL"
@@ -119,6 +122,7 @@ function EditMovie({ isOpen = false,
               value={values.poster}
               onChange={handleChange}
               errors={errors.poster}
+              dataTestid="poster"
             />
             <DropDown
               label="GENRE"
@@ -128,6 +132,7 @@ function EditMovie({ isOpen = false,
               value={values.genre}
               onChange={handleChange}
               errors={errors.genre}
+              dataTestid="genre"
             />
             <Input
               label="OVERVIEW"
@@ -136,6 +141,7 @@ function EditMovie({ isOpen = false,
               value={values.overview}
               onChange={handleChange}
               errors={errors.overview}
+              dataTestid="overview"
             />
             <Input
               label="RUNTIME"
@@ -145,6 +151,7 @@ function EditMovie({ isOpen = false,
               value={parseInt(values.runtime)}
               onChange={handleChange}
               errors={errors.runtime}
+              dataTestid="runtime"
             />
             <div className="action-buttons">
               <Button color="primary-inverted" onClick={resetForm}>

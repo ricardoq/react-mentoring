@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import { moviesReducer } from './utils/reducers/movies';
+import { store } from './utils/constans';
+// import { createStore, applyMiddleware, compose } from 'redux';
+/* import { moviesReducer } from './utils/reducers/movies';
 import thunk from 'redux-thunk';
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -13,7 +14,7 @@ const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
                 moviesReducer,
                 composeEnhancer(applyMiddleware(thunk))
-                );
+                ); */
 
 ReactDOM.render(
   <React.StrictMode>

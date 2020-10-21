@@ -1,9 +1,9 @@
-import { moviesAction } from '../constans';
+import { moviesAction, GET_LIST_URL_FILTERED, GET_LIST_URL, GET_SINGLE_URL } from '../constans';
 
 /**
  * @param {genre, sortBy} filterObject: This object will filter / sort result
  */
-export const getListAction = (filterObject = []) => {
+export const getListAction = (filterObject) => {
   return {
     type: moviesAction.GET_LIST,
     payload: filterObject,
@@ -33,23 +33,21 @@ export const addMovieAction = (newMovie) => {
 
 // Async middleware
 
-export const asyncGetMoviesAction = ({searchString, genre, sortBy}) => (dispatch) => {
-  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies?searchString=${searchString}&genre=${genre}&sortBy=${sortBy}`)
+export const asyncGetMoviesAction = ({searchString, genre, sortBy}) => (dispatch) =>
+  fetch(GET_LIST_URL_FILTERED({searchString, genre, sortBy}))
     .then(response => {
       return response.json();
     }).then(response => {
       dispatch(getListAction(response));
     });
-};
 
-export const asyncGetMovieAction = (movieId) => (dispatch) => {
-  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movie/${movieId}`)
+export const asyncGetMovieAction = (movieId) => (dispatch) =>
+  fetch(GET_SINGLE_URL(movieId))
     .then(response => {
       return response.json();
     }).then(response => {
       dispatch(getMovieAction(response[0]));
     });
-};
 
 export const asyncUpdateMovieAction = (updatedMovie) => (dispatch) => {
   const objectInit = {
@@ -60,11 +58,10 @@ export const asyncUpdateMovieAction = (updatedMovie) => (dispatch) => {
       'Content-Type': 'application/json'
     },
   };
-  fetch(`http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movie/${updatedMovie.id}`,
-        objectInit)
+  return fetch(GET_SINGLE_URL(updatedMovie.id), objectInit)
     .then(response => {
       return response.json();
-    }).then(response => {
+    }).then(() => {
       dispatch(updateMovieAction(updatedMovie));
     });
 };
@@ -78,11 +75,10 @@ export const asyncAddMovieAction = (newMovie) => (dispatch) => {
       'Content-Type': 'application/json'
     },
   };
-  fetch('http://virtserver.swaggerhub.com/ricardoq/movies_api/1.0.5/movies',
-        objectInit)
+  return fetch(GET_LIST_URL, objectInit)
     .then(response => {
       return response.json();
-    }).then((response) => {
+    }).then(() => {
       dispatch(addMovieAction(newMovie));
     });
 };
