@@ -157,7 +157,7 @@ export function EditMovie({ isOpen = false,
               <Button color="primary-inverted" onClick={resetForm}>
                 RESET
               </Button>
-              <Button type="submit">SUBMIT</Button>
+              <Button id="submit-btn" type="submit">SUBMIT</Button>
             </div>
           </form>
         )}

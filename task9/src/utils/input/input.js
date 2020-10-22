@@ -13,8 +13,8 @@ function Input({label, name, type, placeholder, onChange, value, errors}) {
   }, [value]);
 
   return (
-    <div className="input-wrapper">
-      <label for={name}>{label}</label>
+    <div className="input-wrapper" data-testid={name}>
+      <label htmlFor={name}>{label}</label>
       <input type={type || 'text'}
              name={name || ''}
              id={name}
