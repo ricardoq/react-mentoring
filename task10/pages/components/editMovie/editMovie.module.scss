@@ -1,0 +1,19 @@
+.editMovie {
+
+  h2 {
+    color: white;
+    font-weight: 200;
+    text-align: left;
+    margin: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .actionButtons {
+    display: flex;
+    justify-content: flex-end;
+
+    button:first-of-type{
+      margin-right: 1rem;
+    }
+  }
+}

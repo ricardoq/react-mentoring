@@ -1,0 +1,23 @@
+@import '../../utils/constans.scss';
+
+.movielist {
+  border-top: 2px solid black;
+  text-align: left;
+  padding-top: 16px;
+
+  .moviescount {
+    font-size: 20px;
+  }
+
+  .moviecontainer {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 16px;
+
+    h2 {
+      font-weight: 200;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}

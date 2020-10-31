@@ -1,0 +1,16 @@
+@import '../../utils/constans.scss';
+
+.sort {
+  .sortlabel {
+    color: $light-gray;
+    font-weight: 500;
+    margin-right: 20px;
+  }
+
+  .sortvalue {
+    background: $black;
+    border: none;
+    color: white;
+    outline: none;
+  }
+}
