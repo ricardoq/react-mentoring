@@ -1,6 +1,5 @@
 import React from 'react';
 import Logo from '../../utils/logo/logo';
-// import error from '../../img/error.png';
 import { Link } from "react-router-dom";
 import style from './404.module.scss';
 

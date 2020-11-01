@@ -1,8 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import style from './movieList.module.scss';
-import Movie from '../movie/movie';
+import dynamic from "next/dynamic";
+
+const Movie = dynamic(import('../movie/movie'));
 
 function MovieList({movies = []}) {
   return (

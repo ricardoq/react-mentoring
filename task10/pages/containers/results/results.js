@@ -1,10 +1,12 @@
 import React from 'react';
 import style from './results.module.scss';
-import ResultsHeader from './results-header';
-import MovieList from '../../components/movieList/movieList';
 import { useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import {asyncGetMoviesAction} from '../../utils/actions/actionMovies';
+import dynamic from "next/dynamic";
+
+const ResultsHeader = dynamic(import('./results-header'));
+const MovieList = dynamic(import('../../components/movieList/movieList'));
 
 function Results() {
   const dispatch = useDispatch();

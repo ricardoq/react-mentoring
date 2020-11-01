@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import style from './results.module.scss';
-import Filter from '../../components/filter/filter';
-import Sort from '../../components/sort/sort';
 import { asyncGetMoviesAction } from '../../utils/actions/actionMovies';
+import dynamic from "next/dynamic";
+
+const Filter = dynamic(import('../../components/filter/filter'));
+const Sort = dynamic(import('../../components/sort/sort'));
 
 function ResultsHeader({getGenre, getSort}) {
   return (

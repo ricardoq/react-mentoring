@@ -2,14 +2,16 @@ import { connect } from 'react-redux';
 import React, { useState, useEffect } from "react";
 import { Formik } from 'formik';
 import style from "./editMovie.module.scss";
-import Modal from "../modal/modal";
-import Input from "../../utils/input/input";
-import DropDown from "../../utils/dropdown/dropdown";
-import Button from "../../utils/button/button";
 import PropTypes from "prop-types";
 import { asyncUpdateMovieAction, asyncAddMovieAction } from '../../utils/actions/actionMovies';
 import { genresMovie } from '../../utils/constans';
 import { stringifyDate } from '../../utils/utils';
+import dynamic from "next/dynamic";
+
+const Modal = dynamic(import('../modal/modal'));
+const Input = dynamic(import('../../utils/input/input'));
+const DropDown = dynamic(import('../../utils/dropdown/dropdown'));
+const Button = dynamic(import('../../utils/button/button'));
 
 const options = Object.values(genresMovie).map(value => ({label: value, value}));
 

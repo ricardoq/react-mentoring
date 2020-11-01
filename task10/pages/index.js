@@ -1,11 +1,13 @@
 import React from 'react';
 import style from './App.module.scss';
-import Header from './containers/header/header';
-import Results from './containers/results/results';
-import Footer from './containers/footer/footer';
-import ErrorBoundary from './utils/errorBoundary/errorBoundary';
-import NotFoundError from './components/404/404';
-import { BrowserRouter as Router, Switch ,Route, StaticRouter } from "react-router-dom";
+import dynamic from "next/dynamic";
+import { Switch ,Route, StaticRouter } from "react-router-dom";
+
+const Header = dynamic(import('./containers/header/header'));
+const Results = dynamic(import('./containers/results/results'));
+const Footer = dynamic(import('./containers/footer/footer'));
+const ErrorBoundary = dynamic(import('./utils/errorBoundary/errorBoundary'));
+const NotFoundError = dynamic(import('./components/404/404'));
 
 function App() {
   return (

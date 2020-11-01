@@ -1,7 +1,9 @@
 import React from 'react';
 import style from './movieDetail.module.scss';
-import LogoHeader from '../logoHeader/logoHeader';
 import {connect} from 'react-redux';
+import dynamic from "next/dynamic";
+
+const LogoHeader = dynamic(import('../logoHeader/logoHeader'));
 
 function MovieDetail({ selectedMovie }) {
   const {
