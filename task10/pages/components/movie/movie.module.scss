@@ -1,0 +1,65 @@
+@import '../../utils/constans.scss';
+
+.movie {
+  cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  margin-right: 3%;
+  margin-left: 3%;
+  margin-bottom: 20px;
+  position: relative;
+  justify-content: center;
+  width: 27%;
+
+  &:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  button.editbtn {
+    background-color: $black;
+    border-radius: 50%;
+    display: none;
+    color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  a.posterbtn {
+    background: none;
+    padding: 0;
+
+    &:hover + button.editbtn {
+      display: inline-block;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .movieinfo {
+    align-items: flex-start;
+    color: $white;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+
+    h3  {
+      font-weight: 200;
+      margin: 0;
+
+      span {
+        display: block;
+        font-size: 14px;
+        margin-top: 15px;
+      }
+    }
+
+    .year {
+      border: 1px solid $light-gray;
+      border-radius: 5px;
+      padding: 8px;
+    }
+  }
+}
