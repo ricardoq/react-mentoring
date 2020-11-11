@@ -11,11 +11,13 @@ function Filter({filterFunc}) {
     filterFunc(genre);
   };
 
+  const handleSelect = e=>selectFilter(null, e);
+
   return (
     <ul className="genres-list">
       <li>
         <button className={selectedState === null ? 'active':''}
-                onClick={e=>selectFilter(null, e)}>
+                onClick={handleSelect}>
           ALL
         </button>
       </li>
@@ -24,7 +26,7 @@ function Filter({filterFunc}) {
           (genre, index) =>
             <li key={`genre${index}`}>
               <button className={selectedState === genre ? 'active':''}
-                      onClick={e=>selectFilter(genre, e)}>
+                      onClick={handleSelect}>
                 {genre.toUpperCase()}
               </button>
             </li>
@@ -34,4 +36,4 @@ function Filter({filterFunc}) {
   );
 }
 
-export default Filter;
+export default React.memo(Filter);

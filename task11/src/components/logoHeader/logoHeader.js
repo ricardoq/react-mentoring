@@ -33,4 +33,4 @@ LogoHeader.propTypes= {
   isOnDetail: PropTypes.bool,
 }
 
-export default LogoHeader;
+export default React.memo(LogoHeader);

@@ -37,4 +37,4 @@ DropDown.propTypes= {
   value: PropTypes.string,
 };
 
-export default DropDown;
+export default React.memo(DropDown);

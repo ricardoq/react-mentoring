@@ -23,4 +23,4 @@ Modal.propTypes= {
   className: PropTypes.string,
 }
 
-export default Modal;
+export default React.memo(Modal);

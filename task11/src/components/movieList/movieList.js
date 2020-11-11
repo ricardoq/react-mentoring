@@ -23,4 +23,4 @@ const mapStatetoProps = (state) => {
 };
 
 // PATTERN: HIGH ORDER COMPONENT
-export default connect(mapStatetoProps)(MovieList);
+export default React.memo(connect(mapStatetoProps)(MovieList));

@@ -2,10 +2,12 @@ import React from 'react';
 import './sort.scss';
 
 function Sort({sortFunc}) {
+  const handleSort = (e)=>sortFunc(e.target.value);
+
   return (
     <div className="sort">
       <label className="sort-label">SORT BY</label>
-      <select className="sort-value" onChange={(e)=>sortFunc(e.target.value)}>
+      <select className="sort-value" onChange={handleSort}>
         <option value="date">RELEASE DATE</option>
         <option value="title">TITLE</option>
         <option value="rate">RATE</option>
@@ -14,4 +16,4 @@ function Sort({sortFunc}) {
   );
 }
 
-export default Sort;
+export default React.memo(Sort);
