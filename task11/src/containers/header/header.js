@@ -1,11 +1,13 @@
 import React from 'react';
+import loadable from '@loadable/component';
 import './header.scss';
-import LogoHeader from '../../components/logoHeader/logoHeader';
-import Search from '../../components/search/search';
-import MovieDetail from '../../components/movieDetail/movieDetail';
 import { useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import {asyncGetMovieAction} from '../../utils/actions/actionMovies';
+
+const LogoHeader = loadable(() => import('../../components/logoHeader/logoHeader'));
+const Search = loadable(() => import('../../components/search/search'));
+const MovieDetail = loadable(() => import('../../components/movieDetail/movieDetail'));
 
 function Header() {
   const dispatch = useDispatch();

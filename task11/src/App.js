@@ -1,11 +1,13 @@
 import React from 'react';
+import loadable from '@loadable/component';
 import './App.scss';
-import Header from './containers/header/header';
-import Results from './containers/results/results';
-import Footer from './containers/footer/footer';
-import ErrorBoundary from './utils/errorBoundary/errorBoundary';
 import NotFoundError from './components/404/404';
 import { BrowserRouter as Router, Switch ,Route } from "react-router-dom";
+
+const Header = loadable(() => import('./containers/header/header'));
+const Results = loadable(() => import('./containers/results/results'));
+const Footer = loadable(() => import('./containers/footer/footer'));
+const ErrorBoundary = loadable(() => import('./utils/errorBoundary/errorBoundary'));
 
 function App() {
   return (

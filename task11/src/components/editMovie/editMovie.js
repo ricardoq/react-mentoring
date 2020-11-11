@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import React, { useState, useEffect } from "react";
+import loadable from '@loadable/component';
 import { Formik } from 'formik';
 import "./editMovie.scss";
 import Modal from "../modal/modal";
-import Input from "../../utils/input/input";
-import DropDown from "../../utils/dropdown/dropdown";
-import Button from "../../utils/button/button";
 import PropTypes from "prop-types";
 import { asyncUpdateMovieAction, asyncAddMovieAction } from '../../utils/actions/actionMovies';
 import { genresMovie } from '../../utils/constans';
 import { stringifyDate } from '../../utils/utils';
+
+const Input = loadable(() => import('../../utils/input/input'));
+const DropDown = loadable(() => import('../../utils/dropdown/dropdown'));
+const Button = loadable(() => import('../../utils/button/button'));
 
 const options = Object.values(genresMovie).map(value => ({label: value, value}));
 

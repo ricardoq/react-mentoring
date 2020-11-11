@@ -1,7 +1,9 @@
 import React from 'react';
+import loadable from '@loadable/component';
 import './movieDetail.scss';
-import LogoHeader from '../logoHeader/logoHeader';
 import {connect} from 'react-redux';
+
+const LogoHeader = loadable(() => import('../logoHeader/logoHeader'));
 
 function MovieDetail({ selectedMovie }) {
   const {

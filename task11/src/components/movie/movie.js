@@ -1,11 +1,13 @@
 import React from 'react';
+import loadable from '@loadable/component';
 import './movie.scss';
 import PropTypes from 'prop-types';
-import EditMovie from '../editMovie/editMovie';
 import useShowModal from '../../utils/hooks/useShowModal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { Link } from "react-router-dom";
+
+const EditMovie = loadable(() => import('../editMovie/editMovie'));
 
 function Movie({movie}) {
   const [showModal, toggleModal] = useShowModal();
