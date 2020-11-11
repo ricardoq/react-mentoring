@@ -22,4 +22,5 @@ const mapStatetoProps = (state) => {
   return {movies}
 };
 
+// PATTERN: HIGH ORDER COMPONENT
 export default connect(mapStatetoProps)(MovieList);

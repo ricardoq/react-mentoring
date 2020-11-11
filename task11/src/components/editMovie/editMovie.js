@@ -179,4 +179,5 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
+// PATTERN: HIGH ORDER COMPONENT
 export default connect(null, mapDispatchToProps)(EditMovie);

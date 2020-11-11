@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './input.scss';
 import PropTypes from 'prop-types';
 
+// PATTERN: RENDER PROP
 function Input({label, name, type, placeholder, onChange, value, errors}) {
   const [valueState, setValue] = useState(value);
   const updateValue = (e) => {

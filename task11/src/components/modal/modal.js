@@ -2,6 +2,7 @@ import React from 'react';
 import './modal.scss';
 import PropTypes from 'prop-types';
 
+// PATTERN: RENDER PROP
 function Modal({children, close,className}) {
   return <>
     <div className="modal-container">

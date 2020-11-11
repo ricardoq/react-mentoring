@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './dropdown.scss';
 import PropTypes from 'prop-types';
 
+// PATTERN: RENDER PROP
 function DropDown({label, placeholder, options, name, onChange, value}) {
   const [valueState, setValue] = useState(value);
   const updateValue = (e) => {

@@ -42,4 +42,5 @@ const mapStatetoProps = (state) => {
   return {selectedMovie};
 };
 
+// PATTERN: HIGH ORDER COMPONENT
 export default connect(mapStatetoProps)(MovieDetail);

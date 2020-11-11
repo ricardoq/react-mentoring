@@ -2,6 +2,7 @@ import React from 'react';
 import './button.scss';
 import PropTypes from 'prop-types';
 
+// PATTERN: RENDER PROP
 function Button({children, color, className, onClick, id}) {
   const buttonStyle = `${(color || 'primary')} ${className || ''}`;
   return (<button id={id} className={buttonStyle} onClick={onClick}>{children}</button>
