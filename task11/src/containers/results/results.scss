@@ -1,0 +1,9 @@
+@import '../../utils/constans.scss';
+
+.results {
+  border-top: 15px solid $light-gray;
+  background-color: $black;
+  color: $white;
+  min-height: 57vh;
+  padding: 0 40px;
+}
